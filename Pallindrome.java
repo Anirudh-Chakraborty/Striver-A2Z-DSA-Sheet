@@ -29,6 +29,9 @@ public class Pallindrome {
         for(int i = length-1; i>=0; i--){    
          
             int z = x%10;
+            if (reverse + z * Math.pow(10, i)>Integer.MAX_VALUE) {
+                return false;
+            }
             reverse += z * Math.pow(10, i);
             x = x/10;
         }
