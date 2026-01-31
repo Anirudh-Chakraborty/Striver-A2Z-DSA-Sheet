@@ -37,6 +37,7 @@ public class FrequencyofTheMostFrequetElement {
         //     }
         // }
 
+        //Mistake -- 
 
         System.out.println(Arrays.toString(nums));
         return maxFrequency;
