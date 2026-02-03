@@ -1,6 +1,6 @@
 public class CheckifArrayIsSortedandRotated {
     public static void main(String[] args) {
-     int arr []= {1,1,1};
+     int arr []= {5,4,1,2,3};
         System.out.println(check(arr));
     }
 
@@ -24,15 +24,18 @@ public class CheckifArrayIsSortedandRotated {
                 returner = false;
             }
         }
-        System.out.println("Arr");
+
+        //For Printing
+        
         for(int i = 0; i<B.length; i++){
             System.out.print(B[i]+" ");
         }
+        System.out.println("B");
 
-        System.out.println("Nums");
-        for(int i = 0; i<B.length; i++){
+        for(int i = 0; i<A.length; i++){
             System.out.print(A[i]+" ");
         }
+        System.out.println("A");
         }
         
         return returner;
