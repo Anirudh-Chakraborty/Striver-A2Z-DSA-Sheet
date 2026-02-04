@@ -1,15 +1,18 @@
 public class RotateAnArray {
+    static RotateAnArray callRotateAnArray = new RotateAnArray();
+
     public static void main(String[] args) {
         int nums[] = { 2, 3, 4, 5 };
         int k = 3;
 
-        RotateAnArray callRotateAnArray = new RotateAnArray();
-        callRotateAnArray.rotate(nums, k);
+        //callRotateAnArray.rotate_1(nums, k);
+        callRotateAnArray.rotate_2(nums, k);
     }
 
-    public void rotate(int[] nums, int k) {
+    //Method one
+    public void rotate_1(int[] nums, int k) {
         int x = 0;
-
+        k = k % nums.length; // if length = 5, k == 100, it becomes useless therefore reduced the number
         while (x < k) {
             int key = nums[nums.length - 1];
 
@@ -18,14 +21,30 @@ public class RotateAnArray {
             }
             nums[0] = key;
             x++;
-
-            // for printing
-            for (int i = 0; i < nums.length; i++) {
-                System.out.print(nums[i] + " ");
-            }
-            System.out.println("After Printing" + x + "times");
-
         }
+    }
 
+    //Method Two - Best Time Complexity
+    void rotate_2(int[] nums, int k){
+        int n = nums.length;
+        k = k % n ;
+        callRotateAnArray.reverse(nums, 0, n-1);
+        callRotateAnArray.reverse(nums, 0, k-1);
+        callRotateAnArray.reverse(nums, k, n-1);
+
+        //for printing
+        for(int i : nums){
+            System.out.print(i + " ");
+        }
+    }
+
+    void reverse(int [] nums, int start, int end){
+        while (start < end) {
+            int temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
     }
 }

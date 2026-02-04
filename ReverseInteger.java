@@ -21,6 +21,8 @@ public class ReverseInteger {
             int z = 0;
             for (int i = n; i >= 0; i--) {
                 z = x % 10;
+
+                // To check if the limit has passed the max limit?
                 if ((reverse + z * Math.pow(10, i)) > Integer.MAX_VALUE
                         || (reverse + z * Math.pow(10, i)) < Integer.MIN_VALUE) {
                     return 0;
@@ -40,8 +42,8 @@ public class ReverseInteger {
             for (int i = n; i >= 0; i--) {
                 z = x % 10;
                 if ((reverse + z * Math.pow(10, i)) > Integer.MAX_VALUE
-                    || (reverse + z * Math.pow(10, i)) < Integer.MIN_VALUE) {
-                    
+                        || (reverse + z * Math.pow(10, i)) < Integer.MIN_VALUE) {
+
                     return 0;
                 }
                 reverse += z * Math.pow(10, i);
@@ -49,6 +51,7 @@ public class ReverseInteger {
             }
             x = reverse * -1;
         }
+
         return x;
     }
 }
