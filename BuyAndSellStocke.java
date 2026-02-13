@@ -1,11 +1,13 @@
 public class BuyAndSellStocke {
     public static void main(String[] args) {
-     int prices [] = {1,2};   
-        System.out.println(maxProfit(prices));
+     int prices [] = {7,6,4,10,3,1};
+
+        System.out.println(maxProfit_1(prices));
 
     }
 
-    public static int maxProfit(int[] prices) {
+    public static int maxProfit_1(int[] prices) {
+        //Brute-Force Approach
         int buy_index = 0;
         int sell_index = 0;
         int diff = 0;
@@ -27,4 +29,39 @@ public class BuyAndSellStocke {
         
         return diff;
     }
+
+    public static int maxProfit(int[] prices) {
+        
+        int minPrice = Integer.MAX_VALUE;
+        int maxProfit = 0;
+
+        int buy_index = 0;
+        int sell_index = 0;
+        int temp_buy = 0;
+
+        for (int i = 0; i < prices.length; i++) {
+
+            // Update minimum price
+            if (prices[i] < minPrice) {
+                minPrice = prices[i];
+                temp_buy = i;
+            }
+
+            // Calculate profit
+            int profit = prices[i] - minPrice;
+
+            //Chnage Profit
+            if (profit > maxProfit) {
+                maxProfit = profit;
+                buy_index = temp_buy;
+                sell_index = i;
+            }
+        }
+
+        System.out.println("buy Index: " + buy_index);
+        System.out.println("sell Index: " + sell_index);
+
+        return maxProfit;
+    }
 }
+
